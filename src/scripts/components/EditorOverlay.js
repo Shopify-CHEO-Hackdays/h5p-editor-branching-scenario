@@ -116,6 +116,11 @@ export default class EditorOverlay extends React.Component {
       if (contentBehaviourGroup && contentBehaviourGroup.$item[0]) {
         contentBehaviourGroup.$item[0].remove();
       }
+      
+      const timerBehaviourGroup = this.findField('timerBehaviour');
+      if (timerBehaviourGroup && timerBehaviourGroup.$item[0]) {
+        timerBehaviourGroup.$item[0].remove();
+      }
     }
 
     const library = this.findField('type');
@@ -316,11 +321,13 @@ export default class EditorOverlay extends React.Component {
       this.findField('showContentTitle').$item[0].style.display = "block";
       this.findField('forceContentFinished').$item[0].style.display = "block";
       this.findField('contentBehaviour').$item[0].style.display = "block";
+      this.findField('timerBehaviour').$item[0].style.display = "block";
     }
     else{ 
       this.findField('showContentTitle').$item[0].style.display = "none";
       this.findField('forceContentFinished').$item[0].style.display = "none";
       this.findField('contentBehaviour').$item[0].style.display = "none";
+      this.findField('timerBehaviour').$item[0].style.display = "none";
     }
   }
 
@@ -397,6 +404,7 @@ export default class EditorOverlay extends React.Component {
     const feedbackGroupField = (!this.isBranchingQuestion ? this.findField('feedback') : null);
 
     const behaviourGroupField = this.findField('contentBehaviour');
+    const timerGroupField = this.findField('timerBehaviour');
 
     return (
       <div className={ wrapperClass }>
@@ -433,6 +441,7 @@ export default class EditorOverlay extends React.Component {
                 isInserting={ this.props.isInserting }
                 feedbackGroup={ feedbackGroupField }
                 contentBehaviourGroup={ behaviourGroupField }
+                timerBehaviourGroup={ timerGroupField }
                 scoringOption={ this.props.scoringOption }
               />
             </div>

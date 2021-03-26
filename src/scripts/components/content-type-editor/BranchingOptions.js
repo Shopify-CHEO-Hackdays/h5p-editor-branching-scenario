@@ -70,6 +70,10 @@ export default class BranchingOptions extends React.Component {
     if (this.props.contentBehaviourGroup) {
       this.props.contentBehaviourGroup.$item.appendTo(this.contentWrapper);
     }
+    
+    if (this.props.timerBehaviourGroup) {
+      this.props.timerBehaviourGroup.$item.appendTo(this.contentWrapper);
+    }
   }
 
   static hasFeedback(props) {
